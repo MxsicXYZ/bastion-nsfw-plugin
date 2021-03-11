@@ -34,7 +34,7 @@ class pantsuHentaiCommandPlugin extends tesseract.Command {
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});
-        }
+        })
     }
 }
 
