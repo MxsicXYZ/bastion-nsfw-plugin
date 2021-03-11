@@ -1,8 +1,8 @@
 /*!
- * @plugin bastion-example-plugin
- * @author Sankarsan Kampa (k3rn31p4nic)
+ * @plugin bastion-nsfw-plugin
+ * @author Xanathero (@Xynnix)
  * @license MIT
- */
+*/
 
 "use strict";
 
