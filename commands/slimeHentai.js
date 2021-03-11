@@ -38,4 +38,4 @@ class slimeHentaiCommandPlugin extends tesseract.Command {
     }
 }
 
-module.exports = slimeuHentaiCommandPlugin;
+module.exports = slimeHentaiCommandPlugin;
