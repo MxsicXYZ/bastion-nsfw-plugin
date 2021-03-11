@@ -34,7 +34,7 @@ class furGifCommandPlugin extends tesseract.Command {
         await fetch("https://lewds.ga/v1/nsfw/furgif")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send(json.result);
+        message.channel.send({embed: { image: { url: json.result }}});
         }
     }
 }
