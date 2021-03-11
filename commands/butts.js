@@ -7,7 +7,7 @@
 "use strict";
 
 const tesseract = require("@bastion/tesseract");
-const fetch = ("node-fetch");
+const fetch = require("node-fetch");
 
 class buttsCommandPlugin extends tesseract.Command {
     constructor() {
@@ -31,12 +31,12 @@ class buttsCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        const { body } = await fetch.get("https://lewds.ga/v1/nsfw/ass")
-        message.channel.send(body.result);
-        console.log("COMMAND: ", this);
-        console.log("MESSAGE: ", message);
-        console.log("ARGUMENTS: ", argv);
+        await fetch("https://lewds.ga/v1/nsfw/ass")
+                .then(res => res.json())
+                .then(json =>{
+        message.channel.send(json.result);
+        }
     }
 }
 
-module.exports = ExampleCommandPlugin;
+module.exports = buttsCommandPlugin;
