@@ -12,7 +12,7 @@ class trapHentaiCommandPlugin extends tesseract.Command {
     constructor() {
         super("slimeHentai", {
             description: "Sends an NSFW image into the channel",
-            triggers: ["slime"],
+            triggers: ["traps"],
             arguments: {},
             scope: "guild",
             owner: false,
