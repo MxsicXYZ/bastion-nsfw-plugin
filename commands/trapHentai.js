@@ -10,7 +10,7 @@ const fetch = require("node-fetch");
 
 class trapHentaiCommandPlugin extends tesseract.Command {
     constructor() {
-        super("slimeHentai", {
+        super("trapHentai", {
             description: "Sends an NSFW image into the channel",
             triggers: ["traps"],
             arguments: {},
