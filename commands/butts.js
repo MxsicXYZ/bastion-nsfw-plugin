@@ -7,22 +7,23 @@
 "use strict";
 
 const tesseract = require("@bastion/tesseract");
+const fetch = ("node-fetch");
 
-class ExampleCommandPlugin extends tesseract.Command {
+class buttsCommandPlugin extends tesseract.Command {
     constructor() {
-        super("example", {
-            description: "This is an example command. It logs the Command object, the message that triggered the command, and the argumens passed to this command.",
-            triggers: [ "ex", "eg" ],
+        super("butts", {
+            description: "Sends an NSFW image into the channel",
+            triggers: [ "butt", "booty" ],
             arguments: {},
             scope: "guild",
             owner: false,
-            typing: false,
+            typing: true,
             schedulable: true,
             unsafe: false,
-            nsfw: false,
-            cooldown: 0,
+            nsfw: true,
+            cooldown: 5,
             ratelimit: 1,
-            clientPermissions: [],
+            clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             userPermissions: [],
             syntax: [],
             condition: () => true,
@@ -30,6 +31,8 @@ class ExampleCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
+        const { body } = await fetch.get("https://lewds.ga/v1/nsfw/ass")
+        message.channel.send(body.result);
         console.log("COMMAND: ", this);
         console.log("MESSAGE: ", message);
         console.log("ARGUMENTS: ", argv);
