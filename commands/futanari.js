@@ -31,7 +31,7 @@ class futaCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/futa")
+        await fetch("https://api.lewds.fun/api/nsfw/futa")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

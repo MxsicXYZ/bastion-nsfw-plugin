@@ -31,7 +31,7 @@ class animeBoobsCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/hboobs")
+        await fetch("https://api.lewds.fun/api/nsfw/hboobs")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

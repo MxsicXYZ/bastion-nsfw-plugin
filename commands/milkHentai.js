@@ -30,7 +30,7 @@ class milkHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/milk")
+        await fetch("https://api.lewds.fun/api/nsfw/milk")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

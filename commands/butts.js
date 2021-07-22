@@ -31,7 +31,7 @@ class buttsCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/ass")
+        await fetch("https://api.lewds.fun/api/nsfw/ass")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

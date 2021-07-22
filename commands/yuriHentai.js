@@ -30,7 +30,7 @@ class yuriHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/yuri")
+        await fetch("https://api.lewds.fun/api/nsfw/yuri")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

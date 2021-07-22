@@ -30,7 +30,7 @@ class pantsuHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/pantsu")
+        await fetch("https://api.lewds.fun/api/nsfw/pantsu")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

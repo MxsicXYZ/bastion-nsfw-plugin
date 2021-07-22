@@ -30,7 +30,7 @@ class FeetCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/feet")
+        await fetch("https://api.lewds.fun/api/nsfw/feet")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});

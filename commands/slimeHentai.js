@@ -30,7 +30,7 @@ class slimeHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://lewds.ga/v1/nsfw/slime")
+        await fetch("https://api.lewds.fun/api/nsfw/slime")
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.result }}});
