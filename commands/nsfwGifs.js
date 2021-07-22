@@ -34,7 +34,7 @@ class nsfwGifsCommandPlugin extends tesseract.Command {
         await fetch("https://api.lewds.fun/api/nsfw/gifs")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send({embed: { image: { url: json.result }}});
+        message.channel.send({embed: { image: { url: json.url }}});
         })
     }
 }

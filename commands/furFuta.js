@@ -34,7 +34,7 @@ class furFutaCommandPlugin extends tesseract.Command {
         await fetch("https://api.lewds.fun/api/nsfw/furfuta")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send({embed: { image: { url: json.result }}});
+        message.channel.send({embed: { image: { url: json.url }}});
         })
     }
 }
