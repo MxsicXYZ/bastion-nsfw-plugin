@@ -9,11 +9,11 @@
 const tesseract = require("@bastion/tesseract");
 const fetch = require("node-fetch");
 
-class furFutaCommandPlugin extends tesseract.Command {
+class sexCommandPlugin extends tesseract.Command {
     constructor() {
-        super("furFuta", {
+        super("sex", {
             description: "Sends an NSFW image into the channel",
-            triggers: [ "furFutanari" ],
+            triggers: [ "fuck", "screw", "sex" ],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -25,18 +25,20 @@ class furFutaCommandPlugin extends tesseract.Command {
             ratelimit: 1,
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             userPermissions: [],
-            syntax: [" "],
+            syntax: ["@userMention", "userId"],
             condition: () => true,
         });
     }
 
     exec = async (message, argv) => {
-        await fetch("https://api.lewds.fun/api/nsfw/furfuta")
+        const user = message.mentions.members || message.guild.members.cache.get(argv[0]);
+        if (user.size < 1) return message.channel.send(`Please use the --help option with this command to see proper arguments!`)
+        await fetch("https://api.lewds.fun/api/nsfw/sex")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send({embed: { image: { url: json.url }}});
+        message.channel.send({embed: { description: `${message.author} does something sexual to ${user}~`, image: { url: json.url }}});
         })
     }
 }
 
-module.exports = furFutaCommandPlugin;
+module.exports = sexCommandPlugin;

@@ -25,7 +25,7 @@ class animeThighsCommandPlugin extends tesseract.Command {
             ratelimit: 1,
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             userPermissions: [],
-            syntax: [],
+            syntax: [" "],
             condition: () => true,
         });
     }

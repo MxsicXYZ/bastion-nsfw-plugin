@@ -9,11 +9,11 @@
 const tesseract = require("@bastion/tesseract");
 const fetch = require("node-fetch");
 
-class furFutaCommandPlugin extends tesseract.Command {
+class randomNsfwCommandPlugin extends tesseract.Command {
     constructor() {
-        super("furFuta", {
-            description: "Sends an NSFW image into the channel",
-            triggers: [ "furFutanari" ],
+        super("randomNsfw", {
+            description: "Sends a random NSFW image into the channel",
+            triggers: [],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -25,13 +25,15 @@ class furFutaCommandPlugin extends tesseract.Command {
             ratelimit: 1,
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             userPermissions: [],
-            syntax: [" "],
+            syntax: ["@userMention", "userId"],
             condition: () => true,
         });
     }
 
     exec = async (message, argv) => {
-        await fetch("https://api.lewds.fun/api/nsfw/furfuta")
+        const list = ["ass","athighs","blow","boobs","feet","furfuta","furgif","futa","gifs","hboobs","hentai","kink","milk","pantsu","sex","slime","thighs","trap","yuri"];
+        const end = list[Math.floor((Math.random() * list.length))];
+                await fetch("https://api.lewds.fun/api/nsfw/"+end)
                 .then(res => res.json())
                 .then(json =>{
         message.channel.send({embed: { image: { url: json.url }}});
@@ -39,4 +41,4 @@ class furFutaCommandPlugin extends tesseract.Command {
     }
 }
 
-module.exports = furFutaCommandPlugin;
+module.exports = randomNsfwCommandPlugin;
