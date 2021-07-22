@@ -31,12 +31,12 @@ class sexCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        const user = message.mentions.members || message.guild.members.cache.get(argv[0]);
+        const user = message.mentions.members;
         if (user.size < 1) return message.channel.send(`Please use the --help option with this command to see proper arguments!`)
         await fetch("https://api.lewds.fun/api/nsfw/sex")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send({embed: { description: `${message.author} does something sexual to ${user}~`, image: { url: json.url }}});
+        message.channel.send({embed: { description: `${message.author} does something sexual to ${user.first()}~`, image: { url: json.url }}});
         })
     }
 }
