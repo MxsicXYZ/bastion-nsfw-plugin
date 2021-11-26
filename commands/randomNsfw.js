@@ -31,7 +31,7 @@ class randomNsfwCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        const list = ["ass","athighs","blow","boobs","feet","furfuta","furgif","futa","gifs","hboobs","hentai","kink","milk","pantsu","sex","slime","thighs","trap","yuri"];
+        const list = ["ass","assgif","athighs","bbw","bdsm","blow","boobs","feet","furfuta","furgif","futa","gifs","hboobs","hentai","hfeet","irlfemb","jackopose","kink","milk","pantsu","sex","slime","thighs","trap","yuri"];
         const end = list[Math.floor((Math.random() * list.length))];
                 await fetch("https://api.lewds.fun/api/nsfw/"+end)
                 .then(res => res.json())
