@@ -30,10 +30,10 @@ class FeetCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://api.lewds.fun/api/nsfw/feet")
+        await fetch("https://ahni.dev/nsfw/?feet")
                 .then(res => res.json())
                 .then(json =>{
-        message.channel.send({embed: { image: { url: json.url }}});
+        message.channel.send({embed: { image: { url: json }}}).catch(err =>{ console.log(err.message)});
         })
     }
 }

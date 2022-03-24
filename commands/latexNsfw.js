@@ -9,11 +9,11 @@
 const tesseract = require("@bastion/tesseract");
 const fetch = require("node-fetch");
 
-class randomNsfwCommandPlugin extends tesseract.Command {
+class latexNsfwCommandPlugin extends tesseract.Command {
     constructor() {
-        super("randomNsfw", {
+        super("latexNsfw", {
             description: "Sends a random NSFW image into the channel",
-            triggers: [],
+            triggers: ["latex"],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -31,14 +31,12 @@ class randomNsfwCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        const list = ["ass","assgif","athighs","bbw","bdsm","blow","boobs","feet","furfuta","furgif","futa","gifs","hboobs","hentai","hfeet","irlfemb","jackopose","kink","milk","pantsu","sex","slime","thighs","trap","yuri"];
-        const end = list[Math.floor((Math.random() * list.length))];
-                await fetch("https://ahni.dev/nsfw/?"+end)
-                .then(res => res.json())
-                .then(json =>{
-        message.channel.send({embed: { image: { url: json }}}).catch(err =>{ console.log(err.message)});
-        })
+        await fetch("https://ahni.dev/nsfw/?latex")
+            .then(res => res.json())
+            .then(json => {
+                message.channel.send({ embed: { image: { url: json } } }).catch(err => { console.log(err.message) });
+            })
     }
 }
 
-module.exports = randomNsfwCommandPlugin;
+module.exports = latexNsfwCommandPlugin;

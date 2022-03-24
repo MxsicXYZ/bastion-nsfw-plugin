@@ -13,7 +13,7 @@ class animeBoobsCommandPlugin extends tesseract.Command {
     constructor() {
         super("animeBoobs", {
             description: "Sends an NSFW image into the channel",
-            triggers: [ "aboobs" ],
+            triggers: ["aboobs"],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -31,11 +31,11 @@ class animeBoobsCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://api.lewds.fun/api/nsfw/hboobs")
-                .then(res => res.json())
-                .then(json =>{
-        message.channel.send({embed: { image: { url: json.url }}});
-        })
+        await fetch("https://ahni.dev/nsfw/?hboobs")
+            .then(res => res.json())
+            .then(json => {
+                message.channel.send({ embed: { image: { url: json } } }).catch(err => { console.log(err.message) });
+            })
     }
 }
 

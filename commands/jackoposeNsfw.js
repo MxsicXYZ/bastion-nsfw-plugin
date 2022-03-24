@@ -2,17 +2,18 @@
  * @plugin bastion-nsfw-plugin
  * @author Xanathero (@Xynnix)
  * @license MIT
-*/
+ */
+
 "use strict";
 
 const tesseract = require("@bastion/tesseract");
 const fetch = require("node-fetch");
 
-class yuriHentaiCommandPlugin extends tesseract.Command {
+class jackoposeNsfwCommandPlugin extends tesseract.Command {
     constructor() {
-        super("yuriHentai", {
+        super("animeBoobs", {
             description: "Sends an NSFW image into the channel",
-            triggers: ["yuri"],
+            triggers: ["jackopose"],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -30,12 +31,12 @@ class yuriHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://ahni.dev/nsfw/?yuri")
-                .then(res => res.json())
-                .then(json =>{
-        message.channel.send({embed: { image: { url: json }}}).catch(err =>{ console.log(err.message)});
-        })
+        await fetch("https://ahni.dev/nsfw/?jackopose")
+            .then(res => res.json())
+            .then(json => {
+                message.channel.send({ embed: { image: { url: json } } }).catch(err => { console.log(err.message) });
+            })
     }
 }
 
-module.exports = yuriHentaiCommandPlugin;
+module.exports = jackoposeNsfwCommandPlugin;

@@ -8,11 +8,11 @@
 const tesseract = require("@bastion/tesseract");
 const fetch = require("node-fetch");
 
-class yuriHentaiCommandPlugin extends tesseract.Command {
+class hentaiFeetCommandPlugin extends tesseract.Command {
     constructor() {
-        super("yuriHentai", {
+        super("hentaiFeet", {
             description: "Sends an NSFW image into the channel",
-            triggers: ["yuri"],
+            triggers: ["hfeet"],
             arguments: {},
             scope: "guild",
             owner: false,
@@ -30,12 +30,12 @@ class yuriHentaiCommandPlugin extends tesseract.Command {
     }
 
     exec = async (message, argv) => {
-        await fetch("https://ahni.dev/nsfw/?yuri")
-                .then(res => res.json())
-                .then(json =>{
-        message.channel.send({embed: { image: { url: json }}}).catch(err =>{ console.log(err.message)});
-        })
+        await fetch("https://ahni.dev/nsfw/?hfeet")
+            .then(res => res.json())
+            .then(json => {
+                message.channel.send({ embed: { image: { url: json } } }).catch(err => { console.log(err.message) });
+            })
     }
 }
 
-module.exports = yuriHentaiCommandPlugin;
+module.exports = hentaiFeetCommandPlugin;
